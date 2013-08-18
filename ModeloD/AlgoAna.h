@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 #include "Entrada.h"
 #include "CEntrada.h"
@@ -24,10 +25,10 @@ public:
 
     void calculaMedia(vector<Entrada>& vEnt,vector<CEntrada> &vCent);
     
-    void calculaVar(vector<Entrada>& vEnt,vector<CEntrada> &vCent);
+    void calculaVarSDC(vector<Entrada>& vEnt,vector<CEntrada> &vCent);
+     
+    void clasificaEntradas(vector<Entrada>& vEnt, vector<CEntrada>& vCent);
     
-    void calculaDSC(vector<Entrada>& vEnt,vector<CEntrada> &vCent);
-        
     virtual ~AlgoAna();
 private:
 

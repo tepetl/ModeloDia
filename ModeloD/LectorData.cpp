@@ -66,5 +66,6 @@ Entrada LectorData::parser(string scad) {
     split(vc, scad, DELIMITER);
 
     Entrada aux(atol(vc[4].c_str()), atof(vc[5].c_str()), atol(vc[8].c_str()));
+    aux.vs=vc;
     return aux;
 }

@@ -8,6 +8,10 @@
 #ifndef ENTRADA_H
 #define	ENTRADA_H
 
+#include <string>
+#include <vector>
+
+
 using namespace std;
 
 class Entrada {
@@ -17,8 +21,9 @@ public:
     long tiempo;
     long tiempo_real;
     
+    vector<string> vs;
     
-    int sigma;
+    double clase_sigma;
     
     Entrada(double lectura,long tiempo,long tiempo_real);
 

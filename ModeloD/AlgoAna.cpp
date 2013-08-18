@@ -22,33 +22,52 @@ AlgoAna::~AlgoAna() {
 void AlgoAna::calculaMedia(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
 
     for (vector<Entrada>::iterator itren = vEnt.begin(); itren != vEnt.end(); itren++) {
-        this->sumaEntrada(*itren,vCent);
+        this->sumaEntrada(*itren, vCent);
     }
-    
+
     for (vector<CEntrada>::iterator it = vCent.begin(); it != vCent.end(); it++) {
-       it->avg= it->slectura/=it->n;
+        it->avg = it->slectura /= it->n;
     }
 
 }
+
 /**
  * 
  * @param vEnt
  * @param vCent
  * @see http://en.wikipedia.org/wiki/Variance
  */
-void AlgoAna::calculaVar(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
+void AlgoAna::calculaVarSDC(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
+    for (vector<CEntrada>::iterator it = vCent.begin(); it != vCent.end(); it++) {
+        double aux = 0.0;
+        for (vector<Entrada>::iterator itren = vEnt.begin(); itren != vEnt.end(); itren++) {
 
+            if (it->tiempo == itren->tiempo) {
+                aux = +pow(itren->lectura - it->avg, 2);
+            }
+
+        }
+
+        it->variance = aux / it->n;
+        it->csigma = sqrt(aux / (it->n - 1));
+    }
 }
 
 /**
  * 
  * @param vEnt
  * @param vCent
- * 
- * @see http://en.wikipedia.org/wiki/Standard_deviation
  */
-void AlgoAna::calculaDSC(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
+void AlgoAna::clasificaEntradas(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
+    for (vector<CEntrada>::iterator it = vCent.begin(); it != vCent.end(); it++) {
+        for (vector<Entrada>::iterator itren = vEnt.begin(); itren != vEnt.end(); itren++) {
 
+            if (itren->tiempo == it->tiempo) {
+                itren->clase_sigma = ceil(fabs(itren->lectura - it->avg) / it->csigma);
+            }
+
+        }
+    }
 }
 
 /**
