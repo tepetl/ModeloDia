@@ -11,6 +11,9 @@
 #include <vector>
 #include <algorithm>
 
+#include "Entrada.h"
+#include "LectorData.h"
+
 using namespace std;
 
 /**
@@ -23,6 +26,11 @@ int main(int argc, char** argv) {
         cout << "Falta ..." << endl;
 
     }
+     
+     vector<Entrada> vEnt;
+     LectorData lecd();
+     
+     lecd.leeArchivo(string(argv[1]),vEnt);
      
     return 0;
 }

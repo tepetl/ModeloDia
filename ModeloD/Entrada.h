@@ -11,11 +11,16 @@
 using namespace std;
 
 class Entrada {
+    
 public:
-    Entrada();
-   
-    virtual ~Entrada();
-private:
+    double lectura;
+    long tiempo;
+    long tiempo_real;
+    
+    
+    int sigma;
+    
+    Entrada(double lectura,long tiempo,long tiempo_real);
 
 };
 

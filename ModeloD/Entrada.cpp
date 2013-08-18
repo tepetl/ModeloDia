@@ -7,11 +7,8 @@
 
 #include "Entrada.h"
 
-Entrada::Entrada() {
+Entrada::Entrada(double lectura, long tiempo, long tiempo_real){
+    this->lectura=lectura;
+    this->tiempo=tiempo;
+    this->tiempo_real=tiempo_real;
 }
-
-
-
-Entrada::~Entrada() {
-}
-
