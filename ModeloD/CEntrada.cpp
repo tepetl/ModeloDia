@@ -8,5 +8,7 @@
 #include "CEntrada.h"
 
 CEntrada::CEntrada() {
+    
+    n=1;
 }
 

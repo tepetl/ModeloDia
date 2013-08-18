@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
     }
      
      vector<Entrada> vEnt;
-     LectorData lecd();
+     LectorData lecd;
      
      lecd.leeArchivo(string(argv[1]),vEnt);
      

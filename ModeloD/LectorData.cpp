@@ -12,6 +12,11 @@ LectorData::LectorData() {
 
 }
 
+/**
+ * 
+ * @param snomarch
+ * @param vEnt
+ */
 void LectorData::leeArchivo(string snomarch, vector<Entrada>& vEnt) {
     string line;
     ifstream myfile(snomarch.c_str());
@@ -50,11 +55,16 @@ void LectorData::split(vector<string>& theStringVector, const string& theString,
     }
 }
 
+/**
+ * 
+ * @param scad
+ * @return 
+ */
 Entrada LectorData::parser(string scad) {
 
     vector<string> vc;
     split(vc, scad, DELIMITER);
 
-    Entrada aux(atol(vc[2].c_str()), atof(vc[5].c_str()), atol(vc[8].c_str()));
+    Entrada aux(atol(vc[4].c_str()), atof(vc[5].c_str()), atol(vc[8].c_str()));
     return aux;
 }

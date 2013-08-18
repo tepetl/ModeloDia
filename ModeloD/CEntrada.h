@@ -10,6 +10,22 @@
 
 class CEntrada {
 public:
+    
+    double avg;
+    long tiempo;
+    double variance;
+    double csigma;
+    
+    /**
+     * Lectura acumulada
+     */
+    double slectura;
+    
+    /**
+     * Total de lecturas 
+     */
+    double n;
+    
     CEntrada();
    
     

@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/AlgoAna.o \
 	${OBJECTDIR}/CEntrada.o \
 	${OBJECTDIR}/Entrada.o \
 	${OBJECTDIR}/LectorData.o \
@@ -64,6 +65,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/modelod: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/modelod ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/AlgoAna.o: AlgoAna.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/AlgoAna.o AlgoAna.cpp
 
 ${OBJECTDIR}/CEntrada.o: CEntrada.cpp 
 	${MKDIR} -p ${OBJECTDIR}

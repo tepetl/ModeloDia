@@ -30,7 +30,7 @@ public:
    void leeArchivo(string snomarch,vector<Entrada>& vEnt);
 private:
 
-    vector<Entrada> & vEnt;
+ 
 protected:
     void split(vector<string>& theStringVector, const string& theString, const string& theDelimiter);
     Entrada parser(string scad);
