@@ -18,6 +18,9 @@ LectorData::LectorData() {
  * @param vEnt
  */
 void LectorData::leeArchivo(string snomarch, vector<Entrada>& vEnt) {
+    
+    
+    
     string line;
     ifstream myfile(snomarch.c_str());
     if (myfile.is_open()) {

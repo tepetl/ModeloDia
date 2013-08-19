@@ -44,18 +44,19 @@ int main(int argc, char** argv) {
     LectorData lecd;
 
     snomarch = string(argv[1]);
-
+cout << "Se lee el archivo: "<<snomarch<<endl;
     lecd.leeArchivo(snomarch, vEnt);
 
 
     vector<CEntrada> vCent;
 
     AlgoAna ana;
-
+cout << "Calculan las medias, variancia y se clasifica "<<endl;
     ana.calculaMedia(vEnt, vCent);
     ana.calculaVarSDC(vEnt, vCent);
     ana.clasificaEntradas(vEnt, vCent);
 
+cout << "Imprime las entradas clasificadas "<<endl;    
     imprimeEntradas(vEnt);
 
     return 0;
