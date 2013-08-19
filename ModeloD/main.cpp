@@ -23,42 +23,85 @@ using namespace std;
 
 void imprimeEntradas(vector<Entrada> &vEnt);
 void imprimeCEntradas(vector<CEntrada> &vCent);
+
+string snomarch;
+
 /**
  * 
+ * @param argc
+ * @param argv
+ * @return 
  */
 int main(int argc, char** argv) {
 
-     if (argc == 1) {
+    if (argc == 1) {
 
         cout << "Falta ..." << endl;
 
     }
-     
-     vector<Entrada> vEnt;
-     LectorData lecd;
-     
-     lecd.leeArchivo(string(argv[1]),vEnt);
-     
-     
-     vector<CEntrada> vCent;
-     
-     AlgoAna ana;
-     
-     ana.calculaMedia(vEnt,vCent);
-     ana.calculaVarSDC(vEnt,vCent);
-     ana.clasificaEntradas(vEnt,vCent);
-     
-     imprimeEntradas(vEnt);
-     
+
+    vector<Entrada> vEnt;
+    LectorData lecd;
+
+    snomarch = string(argv[1]);
+
+    lecd.leeArchivo(snomarch, vEnt);
+
+
+    vector<CEntrada> vCent;
+
+    AlgoAna ana;
+
+    ana.calculaMedia(vEnt, vCent);
+    ana.calculaVarSDC(vEnt, vCent);
+    ana.clasificaEntradas(vEnt, vCent);
+
+    imprimeEntradas(vEnt);
+
     return 0;
 }
 
+/**
+ * @brief función que imprime un vector con las entradas 
+ * @param vEnt
+ */
+void imprimeEntradas(vector<Entrada> &vEnt) {
+    string sna = snomarch + ".ent";
+    ofstream miar(sna.c_str());
 
-void imprimeEntradas(vector<Entrada> &vEnt){
-    
+
+    if (miar.is_open()) {
+
+        for (vector<Entrada>::iterator it = vEnt.begin(); it != vEnt.end(); it++) {
+            vector<string> vs = (*it).vs;
+
+            for (vector<string>::iterator itc = vs.begin(); itc != vs.end(); ++itc) {
+                miar << *itc << "|";
+            }
+            miar << it->clase_sigma << endl;
+        }
+
+
+        miar.close();
+    }
 }
 
+/**
+ * 
+ * @param vCEnt
+ */
+void imprimeCEntradas(vector<CEntrada> &vCEnt) {
+    string sna = snomarch + ".cent";
+    ofstream miar(sna.c_str());
 
-void imprimeCEntradas(vector<CEntrada> &vCent){
-    
+
+    if (miar.is_open()) {
+
+        for (vector<CEntrada>::iterator it = vCEnt.begin(); it != vCEnt.end(); it++) {
+            miar << it->avg << "|" << it->csigma << "|" << it->n << "|" << it->slectura << "|" << it->tiempo << "|" << it->variance << endl;
+        }
+
+
+        miar.close();
+    }
 }
