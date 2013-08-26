@@ -1,8 +1,8 @@
-/* 
- * File:   LectorData.cpp
- * Author: alfonso
+/** 
+ * @file LectorData.cpp
+ * @author AAFR <alffore@yahoo.com.mx>
  * 
- * Created on 17 de agosto de 2013, 06:54 PM
+ * Creado el 17 de agosto de 2013, 06:54 PM
  */
 
 #include "LectorData.h"

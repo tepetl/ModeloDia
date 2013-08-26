@@ -1,8 +1,8 @@
-/* 
- * File:   AlgoAna.cpp
- * Author: alfonso
+/** 
+ * @file  AlgoAna.cpp
+ * @author AAFR <alffore@yahoo.com.mx>
  * 
- * Created on 17 de agosto de 2013, 08:16 PM
+ * Creado el 17 de agosto de 2013, 08:16 PM
  */
 
 #include "AlgoAna.h"
