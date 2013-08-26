@@ -17,7 +17,7 @@ using namespace std;
 class Entrada {
     
 public:
-    double lectura;
+    double lecturadp;
     long tiempo;
     long tiempo_real;
     

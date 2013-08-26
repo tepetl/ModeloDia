@@ -43,7 +43,7 @@ void AlgoAna::calculaVarSDC(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
         for (vector<Entrada>::iterator itren = vEnt.begin(); itren != vEnt.end(); itren++) {
 
             if (it->tiempo == itren->tiempo) {
-                aux = +pow(itren->lectura - it->avg, 2);
+                aux = +pow(itren->lecturadp - it->avg, 2);
             }
 
         }
@@ -63,7 +63,7 @@ void AlgoAna::clasificaEntradas(vector<Entrada>& vEnt, vector<CEntrada>& vCent) 
         for (vector<Entrada>::iterator itren = vEnt.begin(); itren != vEnt.end(); itren++) {
 
             if (itren->tiempo == it->tiempo) {
-                itren->clase_sigma = ceil(fabs(itren->lectura - it->avg) / it->csigma);
+                itren->clase_sigma = ceil(fabs(itren->lecturadp - it->avg) / it->csigma);
             }
 
         }
@@ -95,7 +95,7 @@ void AlgoAna::sumaEntrada(Entrada& ent, vector<CEntrada>& vCent) {
 
     if (vCent.size() == 0) {
 
-        vCent.push_back(this->creaCEntrada(ent.tiempo, ent.lectura));
+        vCent.push_back(this->creaCEntrada(ent.tiempo, ent.lecturadp));
         return;
 
     }
@@ -103,13 +103,13 @@ void AlgoAna::sumaEntrada(Entrada& ent, vector<CEntrada>& vCent) {
     for (vector<CEntrada>::iterator it = vCent.begin(); it != vCent.end(); it++) {
 
         if (it->tiempo == ent.tiempo) {
-            it->slectura += ent.lectura;
+            it->slectura += ent.lecturadp;
             it->n += 1.0;
             return;
         }
 
     }
 
-    vCent.push_back(this->creaCEntrada(ent.tiempo, ent.lectura));
+    vCent.push_back(this->creaCEntrada(ent.tiempo, ent.lecturadp));
 
 }
