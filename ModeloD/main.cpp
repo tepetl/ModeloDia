@@ -59,6 +59,10 @@ cout << "Calculan las medias, variancia y se clasifica "<<endl;
 cout << "Imprime las entradas clasificadas "<<endl;    
     imprimeEntradas(vEnt);
 
+cout << "Imprime el clasificador"<<endl;
+
+    imprimeCEntradas(vCent);
+    
     return 0;
 }
 
@@ -79,7 +83,10 @@ void imprimeEntradas(vector<Entrada> &vEnt) {
             for (vector<string>::iterator itc = vs.begin(); itc != vs.end(); ++itc) {
                 miar << *itc << "|";
             }
-            miar << it->clase_sigma << endl;
+            miar << it->clase_sigma;
+            //miar <<"|"<< it->;
+            
+            miar << endl;
         }
 
 

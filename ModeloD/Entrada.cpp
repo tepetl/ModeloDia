@@ -8,7 +8,7 @@
 #include "Entrada.h"
 
 Entrada::Entrada(double lectura, long tiempo, long tiempo_real){
-    this->lectura=lectura;
+    this->lecturadp=lectura;
     this->tiempo=tiempo;
     this->tiempo_real=tiempo_real;
 }

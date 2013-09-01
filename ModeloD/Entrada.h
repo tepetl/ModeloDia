@@ -1,6 +1,6 @@
-/* 
- * File:   Entrada.h
- * Author: alfonso
+/**
+ * @file   Entrada.h
+ * @author AAFR <alffore@yahoo.com.mx>
  *
  * Created on 10 de julio de 2013, 04:02 PM
  */
@@ -17,7 +17,7 @@ using namespace std;
 class Entrada {
     
 public:
-    double lectura;
+    double lecturadp;
     long tiempo;
     long tiempo_real;
     
