@@ -18,15 +18,15 @@ LectorData::LectorData() {
  * @param vEnt
  */
 void LectorData::leeArchivo(string snomarch, vector<Entrada>& vEnt) {
-    
-    
-    
+
     string line;
     ifstream myfile(snomarch.c_str());
     if (myfile.is_open()) {
         while (myfile.good()) {
             getline(myfile, line);
-            vEnt.push_back(parser(line));
+            if (line.size() > 0) {
+                vEnt.push_back(parser(line));
+            }
         }
         myfile.close();
     } else {
@@ -64,11 +64,11 @@ void LectorData::split(vector<string>& theStringVector, const string& theString,
  * @return 
  */
 Entrada LectorData::parser(string scad) {
-
+    cout << "Analiza: " << scad << endl;
     vector<string> vc;
     split(vc, scad, DELIMITER);
 
     Entrada aux(atol(vc[4].c_str()), atof(vc[5].c_str()), atol(vc[8].c_str()));
-    aux.vs=vc;
+    aux.vs = vc;
     return aux;
 }
