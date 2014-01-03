@@ -49,7 +49,7 @@ void AlgoAna::calculaVarSDC(vector<Entrada>& vEnt, vector<CEntrada>& vCent) {
         }
 
         it->variance = aux / it->n;
-        it->csigma = sqrt(aux / (it->n - 1));
+        it->csigma = (it->n > 1) ? sqrt(aux / (it->n - 1)) : sqrt(aux / it->n);
     }
 }
 
@@ -87,7 +87,7 @@ CEntrada AlgoAna::creaCEntrada(long tiempo, double lectura) {
 }
 
 /**
- * 
+ * @brief Método que suma la entrada, la cuenta o la crea 
  * @param ent
  * @param vCent
  */

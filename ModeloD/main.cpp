@@ -35,34 +35,32 @@ string snomarch;
 int main(int argc, char** argv) {
 
     if (argc == 1) {
-
         cout << "Falta ..." << endl;
-
     }
 
     vector<Entrada> vEnt;
     LectorData lecd;
 
     snomarch = string(argv[1]);
-cout << "Se lee el archivo: "<<snomarch<<endl;
+    cout << "Se lee el archivo: " << snomarch << endl;
     lecd.leeArchivo(snomarch, vEnt);
 
 
     vector<CEntrada> vCent;
 
     AlgoAna ana;
-cout << "Calculan las medias, variancia y se clasifica "<<endl;
+    cout << "Calculan las medias, variancia y se clasifica " << endl;
     ana.calculaMedia(vEnt, vCent);
     ana.calculaVarSDC(vEnt, vCent);
     ana.clasificaEntradas(vEnt, vCent);
 
-cout << "Imprime las entradas clasificadas "<<endl;    
+    cout << "Imprime las entradas clasificadas " << endl;
     imprimeEntradas(vEnt);
 
-cout << "Imprime el clasificador"<<endl;
+    cout << "Imprime el clasificador" << endl;
 
     imprimeCEntradas(vCent);
-    
+
     return 0;
 }
 
@@ -85,7 +83,7 @@ void imprimeEntradas(vector<Entrada> &vEnt) {
             }
             miar << it->clase_sigma;
             //miar <<"|"<< it->;
-            
+
             miar << endl;
         }
 
